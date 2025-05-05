@@ -1,2 +1,2 @@
-# Login_Signup-form
-A LOGIN SIGNUP form that is created by using react and tailwind
+# Login_Signup form
+this is my projects for a  login signup form
