@@ -1,9 +1,18 @@
 import React from "react";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import image from "../assets/image.jpg";
 
 const SignUpForm = () => {
   console.log("Image path:", image);
+
+  // Array of input field configurations
+  const inputFields = [
+    { type: "text", placeholder: "Name" },
+    { type: "email", placeholder: "Email" },
+    { type: "password", placeholder: "Password" },
+    { type: "password", placeholder: "Confirm password" },
+  ];
+
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
       <div className="flex bg-white rounded-2xl shadow-xl overflow-hidden max-w-4xl w-full m-4">
@@ -34,34 +43,16 @@ const SignUpForm = () => {
           <p className="text-gray-500 mb-8">Join Nucleus UI and start designing with ease.</p>
 
           <form className="space-y-5">
-            <div>
-              <input
-                type="text"
-                placeholder="Name"
-                className="w-full p-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 transition"
-              />
-            </div>
-            <div>
-              <input
-                type="email"
-                placeholder="Email"
-                className="w-full p-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 transition"
-              />
-            </div>
-            <div>
-              <input
-                type="password"
-                placeholder="Password"
-                className="w-full p-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 transition"
-              />
-            </div>
-            <div>
-              <input
-                type="password"
-                placeholder="Confirm password"
-                className="w-full p-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 transition"
-              />
-            </div>
+            {/* Map over inputFields to render input elements */}
+            {inputFields.map((field, index) => (
+              <div key={index}>
+                <input
+                  type={field.type}
+                  placeholder={field.placeholder}
+                  className="w-full p-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 transition"
+                />
+              </div>
+            ))}
 
             <button
               type="submit"

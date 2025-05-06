@@ -4,6 +4,13 @@ import images from "../assets/images.jpg";
 
 const LoginForm = () => {
   console.log("Image path:", images);
+
+  // Array of input field configurations
+  const inputFields = [
+    { type: "email", placeholder: "Email" },
+    { type: "password", placeholder: "Password" },
+  ];
+
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
       <div className="flex bg-white rounded-2xl shadow-xl overflow-hidden max-w-4xl w-full m-4">
@@ -33,20 +40,16 @@ const LoginForm = () => {
           <h2 className="text-3xl font-bold text-gray-800 mb-2 text-center">Welcome back to Nucleus</h2>
           <p className="text-gray-500 mb-8 text-center">Build your design system effortlessly with our powerful component library.</p>
           <form className="space-y-5">
-            <div>
-              <input
-                type="email"
-                placeholder="Email"
-                className="w-full p-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 transition"
-              />
-            </div>
-            <div>
-              <input
-                type="password"
-                placeholder="Password"
-                className="w-full p-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 transition"
-              />
-            </div>
+            {/* Map over inputFields to render input elements */}
+            {inputFields.map((field, index) => (
+              <div key={index}>
+                <input
+                  type={field.type}
+                  placeholder={field.placeholder}
+                  className="w-full p-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 transition"
+                />
+              </div>
+            ))}
             <div className="flex items-center justify-between text-sm">
               <a href="#" className="text-purple-600 hover:text-purple-800 font-medium">Forgot password?</a>
               <div className="flex items-center">
